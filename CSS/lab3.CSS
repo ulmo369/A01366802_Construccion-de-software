@@ -7,4 +7,49 @@ body {
     line-height: 1.5;
     padding: 4em 1em;
     color: #566b78;
+    background-color: bisque;
+    border: 3px solid #e81c4f;
+    border-radius: 300px;
+}
+
+header {
+    text-align:center;
+    color: darkblue;
+}
+
+#lab1 {
+    text-align:center;
+    color:darkgreen;
+}
+
+#lab3{
+    text-align:center;
+    color:darkred;
+}
+
+a{
+    color: red;
+}
+
+strong{
+    color: saddlebrown;
+}
+
+footer{
+    text-align:center;
+}
+
+header h1:hover {
+    background:  #0ab443;
+    color: rgb(255, 255, 255);
+}
+
+.color_matricula:hover {
+    background:  #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+header #correo:hover {
+    background:  #ff0040;
+    color: rgb(255, 255, 255);
 }
