@@ -64,7 +64,47 @@ function Ejercicio3(){
 }
 
 
+function Ejercicio4(){
+    var num = prompt("De cuantos numeros cada renglon? (En la consola se motrara cada matriz)");
+    var cant = prompt("Cuantos renglones?")
+    var matriz = []
 
-//Ejercicio2()
+    while (cant > 0){
+        var arreglo = [];
+        var cont = 0;
+        
+        for (let i = 0; i <= num - 1; i++){
+            var numeros =  Math.round(Math.random() * (100 - 50) + 50);
+            arreglo.push(numeros);
+        }
+        console.log(arreglo)
+
+        matriz.push(arreglo);
+        cant--;
+    }
+
+    for (var i = 0; i < matriz.length; i++){
+        var promedio = 0;
+        var suma = 0;
+
+        for (var j = 0; j < matriz[i].length; j++){
+
+            var Numero_Actual = matriz[i][j];
+            suma = suma + Numero_Actual;
+        }
+
+        var ren = i + 1;
+        promedio = suma / num;
+        alert("El promedio del renglon " + ren + " es = " + promedio + "\n");
+        console.log(matriz);
+        console.log("El promedio del renglon " + ren + " es = " + promedio + "\n");
+    }
+}
+
+
+
+
 //Ejercicio1()
-Ejercicio3()
+//Ejercicio2()
+//Ejercicio3()
+//Ejercicio4()
