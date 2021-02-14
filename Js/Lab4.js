@@ -32,8 +32,39 @@ function Ejercicio2(){
     }
 }
 
+function Ejercicio3(){
+    N = prompt("Cuantos numeros quieres agregar al arreglo?")
+    const arreglo = []
 
-var numeros = Math.floor(Math.random() * 101);
+    for (let i = 0; i <= N - 1; i++){
+        var numeros =  Math.round(Math.random() * (10 - (-10)) + (-10));
+        arreglo.push(numeros);
+    }
+
+    var contador0 = 0;
+    var contadorNegativos = 0;
+    var contadorPositivos = 0;
+    for (let i = 0; i <= arreglo.length; i++){
+
+        if (arreglo[i] == 0){
+            contador0++;
+        }
+
+        else if (arreglo[i] < 0){
+            contadorNegativos++;
+        }
+
+        else if (arreglo[i] > 0){
+            contadorPositivos++;
+        }
+    }
+
+    console.log(arreglo);
+    alert("0's = " + contador0 + "\nNegativos = " + contadorNegativos + "\nPositivos= " + contadorPositivos);
+}
+
+
 
 //Ejercicio2()
 //Ejercicio1()
+Ejercicio3()
