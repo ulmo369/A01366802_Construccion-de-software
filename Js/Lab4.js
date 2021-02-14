@@ -16,7 +16,7 @@ function Ejercicio1 (){
     }
 
 }
-
+//------------------------------------------------------------------------------------------------------
 function Ejercicio2(){
     var random1 = Math.floor(Math.random() * 101);
     var random2 = Math.floor(Math.random() * 101);
@@ -34,7 +34,7 @@ function Ejercicio2(){
         alert("INCORRECTO!! el resultado era " + suma + " tardaste " + time + "Seg");
     }
 }
-
+//------------------------------------------------------------------------------------------------------
 function Ejercicio3(){
     N = prompt("Cuantos numeros quieres agregar al arreglo?")
     const arreglo = []
@@ -65,8 +65,7 @@ function Ejercicio3(){
     console.log(arreglo);
     alert("0's = " + contador0 + "\nNegativos = " + contadorNegativos + "\nPositivos= " + contadorPositivos);
 }
-
-
+//------------------------------------------------------------------------------------------------------
 function Ejercicio4(){
     var num = prompt("De cuantos numeros cada renglon? (En la consola se motrara cada matriz)");
     var cant = prompt("Cuantos renglones?")
@@ -103,7 +102,7 @@ function Ejercicio4(){
         console.log("El promedio del renglon " + ren + " es = " + promedio + "\n");
     }
 }
-
+//------------------------------------------------------------------------------------------------------
 function Ejercicio5(){
     var numero = prompt("Dame el número que quieres invertir");
     var numero_Inverso = "";
@@ -116,6 +115,76 @@ function Ejercicio5(){
     alert("Numero dado = " + numero + "\nnumero inverso = " + numero_Inverso);
 }
 
+//------------------------------------------------------------------------------------------------------
+
+function Ejercicio6(){
+
+    class Registro{
+
+        constructor(salon, v){
+            this.salon = salon;
+            this.v = v;
+        }
+    
+        mas_alto(){
+            var mayor = 0;
+            var alumno = [];
+            for (var i = 0; i < v.length; i++){
+                var calificacion = v[i][1];
+                if (calificacion > mayor){
+                    mayor = calificacion;
+                    alumno = v[i][0];
+                }
+            }
+            console.log(alumno);
+            return mayor;
+        }
+    
+        mas_bajo(){
+            var menor = 100;
+            var alumno = [];
+            for (var i = 0; i < v.length; i++){
+                var calificacion = v[i][1];
+                if (calificacion < menor){
+                    menor = calificacion;
+                    alumno = v[i][0];
+                }
+            }
+            console.log(alumno);
+            return menor;
+        }
+    
+        promedio(){
+            var promedio = 0;
+            var suma = 0;
+    
+            for (var i = 0; i < v.length; i++){
+                var calificacion = v[i][1];
+                suma = suma + calificacion;
+            }
+            promedio = suma / i;
+            return promedio;
+        }
+    
+        Get_salon(){
+            return this.salon;
+        }
+    
+    
+    }
+    
+    var v = [["carolina", 93], ["Emilio", 94], ["Romel", 99], ["David", 90], ["Erick", 92], ["Leo", 98], ["Emi", 89], ["Manolo", 91], ["Julio", 93], ["Isaias", 79]];
+    var datos = new Registro("Salon 512", v);
+    
+    var result;
+    
+    console.log(datos.Get_salon());
+    result = datos.promedio();
+    console.log(result);
+}
+
+
+
 
 
 //Ejercicio1()
@@ -123,3 +192,4 @@ function Ejercicio5(){
 //Ejercicio3()
 //Ejercicio4()
 //Ejercicio5()
+//Ejercicio6()
