@@ -53,3 +53,7 @@ header #correo:hover {
     background:  #ff0040;
     color: rgb(255, 255, 255);
 }
+
+table{
+    text-align:center;
+}
