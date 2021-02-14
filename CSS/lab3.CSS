@@ -73,3 +73,12 @@ th, td {
     padding: 5px;
     text-align: left;    
 }
+
+#Ejercicios{
+    text-align:center;
+}
+
+#Ejs{
+    text-align:center;
+    color: darkcyan;
+}

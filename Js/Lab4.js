@@ -63,7 +63,7 @@ function Ejercicio3(){
     }
 
     console.log(arreglo);
-    alert("0's = " + contador0 + "\nNegativos = " + contadorNegativos + "\nPositivos= " + contadorPositivos);
+    alert("Arreglo = " + arreglo + "\n0's = " + contador0 + "\nNegativos = " + contadorNegativos + "\nPositivos= " + contadorPositivos);
 }
 //------------------------------------------------------------------------------------------------------
 function Ejercicio4(){
@@ -126,23 +126,45 @@ function Ejercicio6(){
             this.v = v;
         }
     
-        mas_alto(){
+        mas_alto_c(){
+            var mayor = 0;
+            for (var i = 0; i < v.length; i++){
+                var calificacion = v[i][1];
+                if (calificacion > mayor){
+                    mayor = calificacion;
+                }
+            }
+
+            return mayor;
+        }
+
+        mas_alto_a(){
             var mayor = 0;
             var alumno = [];
             for (var i = 0; i < v.length; i++){
-                var calificacion = v[i][1];
+                let calificacion = v[i][1];
                 if (calificacion > mayor){
                     mayor = calificacion;
                     alumno = v[i][0];
                 }
             }
-            console.log(alumno);
-            return mayor;
+            return alumno;
         }
     
-        mas_bajo(){
+        mas_bajo_c(){
             var menor = 100;
-            var alumno = [];
+            for (var i = 0; i < v.length; i++){
+                var calificacion = v[i][1];
+                if (calificacion < menor){
+                    menor = calificacion;
+                }
+            }
+            return menor;
+        }
+
+        mas_bajo_a(){
+            let menor = 100;
+            let alumno = [];
             for (var i = 0; i < v.length; i++){
                 var calificacion = v[i][1];
                 if (calificacion < menor){
@@ -150,8 +172,7 @@ function Ejercicio6(){
                     alumno = v[i][0];
                 }
             }
-            console.log(alumno);
-            return menor;
+            return alumno;
         }
     
         promedio(){
@@ -173,23 +194,23 @@ function Ejercicio6(){
     
     }
     
-    var v = [["carolina", 93], ["Emilio", 94], ["Romel", 99], ["David", 90], ["Erick", 92], ["Leo", 98], ["Emi", 89], ["Manolo", 91], ["Julio", 93], ["Isaias", 79]];
+    var v = [["carolina", 93], ["\nEmilio", 94], ["\nRomel", 99], ["\nDavid", 90], ["\nErick", 92], ["\nLeo", 98], ["\nEmi", 89], ["\nManolo", 91], ["\nJulio", 93], ["\nIsaias", 79]];
     var datos = new Registro("Salon 512", v);
     
     var result;
     
-    console.log(datos.Get_salon());
-    result = datos.promedio();
-    console.log(result);
+    let pregunta = prompt("Calificaciones:\n" + v + "\n\nQue trabajo necesitas?\n(1)calificación más alta\n(2)califiación más baja\n(3)promedio del salon");
+    if (pregunta == 3){
+
+        console.log(datos.Get_salon() + datos.promedio());
+        alert("El " + datos.Get_salon() + " tiene un promedio de " + datos.promedio());
+    }
+    else if (pregunta == 2){
+        console.log(datos.Get_salon() + datos.mas_bajo_c());
+        alert("El más bajo del " + datos.Get_salon() + " es " + datos.mas_bajo_a() + " con " + datos.mas_bajo_c());
+    }
+    else if (pregunta == 1){
+        console.log(datos.Get_salon() + datos.mas_alto_c());
+        alert("El más alto del " + datos.Get_salon() + " es " + datos.mas_alto_a() + " con " + datos.mas_alto_c());
+    }
 }
-
-
-
-
-
-//Ejercicio1()
-//Ejercicio2()
-//Ejercicio3()
-//Ejercicio4()
-//Ejercicio5()
-//Ejercicio6()
