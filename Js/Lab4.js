@@ -1,15 +1,18 @@
 function Ejercicio1 (){
     
     const n = prompt("Dame el número");
+    document.write("<table style=width:50% align=center> <tr> ","<td style=width:20.2%>Numero</td>" );
+    document.write("<td style=width:17%> Cuadrado </td>");
+    document.write("<td style=width:20%> Cubo </td>");
 
     for (var i = 0; i <= n; i++){
-        document.write ("<table><tr> ",i," -> </tr>");
+        document.write("<table style=width:50% align=center> <tr> ","<td style=width:20%>",i,"</td>" );
         
         var cuadrado = Math.pow(i, 2);
-        document.write ("<tr>",cuadrado," -> </tr>");
+        document.write("<td style=width:20%>", cuadrado ,"</td>");
 
         var cubo = Math.pow(i,3);
-        document.write ("<tr>",cubo," </tr> </table>");
+        document.write("<td style=width:20%>", cubo ," </td> </tr></table>");
     }
 
 }
@@ -101,6 +104,17 @@ function Ejercicio4(){
     }
 }
 
+function Ejercicio5(){
+    var numero = prompt("Dame el número que quieres invertir");
+    var numero_Inverso = "";
+
+    for (let i = numero.length - 1; i >= 0; i--){
+        numero_Inverso = numero_Inverso + numero[i];
+    }
+
+    console.log("Numero dado = " + numero + "\nnumero inverso = " + numero_Inverso);
+    alert("Numero dado = " + numero + "\nnumero inverso = " + numero_Inverso);
+}
 
 
 
@@ -108,3 +122,4 @@ function Ejercicio4(){
 //Ejercicio2()
 //Ejercicio3()
 //Ejercicio4()
+//Ejercicio5()
