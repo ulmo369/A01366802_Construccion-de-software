@@ -67,14 +67,13 @@ function Ejercicio3(){
 }
 //------------------------------------------------------------------------------------------------------
 function Ejercicio4(){
-    var num = prompt("De cuantos numeros cada renglon? (En la consola se motrara cada matriz)");
+    var num = prompt("De cuantos numeros cada renglon? (En la consola se mostrara cada matriz)");
     var cant = prompt("Cuantos renglones?")
     var matriz = []
 
     while (cant > 0){
         var arreglo = [];
-        var cont = 0;
-        
+
         for (let i = 0; i <= num - 1; i++){
             var numeros =  Math.round(Math.random() * (100 - 50) + 50);
             arreglo.push(numeros);
