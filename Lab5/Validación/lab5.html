@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABORATORIO 5</title>
+    <link rel="stylesheet" href="lab5.CSS">
+</head>
+<body>
+    <header>
+        <h1>LABORATORIO 5</h1>
+        <br><br>
+    </header>
+
+    <main>
+
+        <h2>Introduce tu contraseña:</h2>
+        <input id = "contraseña1" type="password">
+
+        <h3>Vuelve a introudir tu contraseña: </h3>
+        <input id= "contraseña2" type="password">
+        
+        <br><div id = "No_parecido" style="visibility: hidden">Las contraseñas no son iguales</div>
+        <div id = "Parecido" style="visibility: hidden">Las contraseñas son iguales</div>
+        <button id = "Aceptar_contra" class = "button" onclick="verificar()">Aceptar</button>
+
+    </main>
+    <script src="lab5.js"></script>
+</body>
+</html>
