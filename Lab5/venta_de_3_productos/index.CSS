@@ -1,0 +1,12 @@
+body {
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    line-height: 1.5;
+    padding: 4em 1em;
+    color: #566b78;
+    background-color: bisque;
+    border: 3px solid #e81c4f;
+    border-radius: 300px;
+    text-align:center;
+}

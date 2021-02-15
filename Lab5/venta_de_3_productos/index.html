@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta_3</title>
+    <link rel="stylesheet" href="index.CSS">
+</head>
+
+<body onload="bienvenida()">
+    <header>
+        <h1>Venta de 3 productos</h1>
+        <h4>Cada que refresques la pagina se cambiara la imagen devido a un evento</h4>
+    </header>
+
+    <main>
+        <br><hr><hr>
+        <h2>Bienvenido a GAME STATION</h2>
+        <div id="img"></div>
+        <h3>Productos disponibles</h3>
+        <br>
+
+        <section id = "Productos">
+            <div>Nintendo swith $8,000 (maximo 3): 
+            <input type="number" id="Nintendo" min="0" max="3"></div>
+            <br><br>
+            <div>X-box $10,000 (maximo 3): <input type="number" id="X-box" min="0" max="3"></div>
+            <br><br>
+            <div>Play Station $13,000 (maximo 3): <input type="number" id="PS" min="0" max="3"></div>
+        </section>
+
+        <br>
+        <div>¿Estas seguro que quieres esos productos?</div>
+        <button id="confirmar" class = "button" onclick="confirmar()">Cofirmo</button>
+        <br><br>
+        <div id="IVA">IVA 16%: </div>
+        <div id = "precio">Monto a pagar: </div>
+        <button id="pagar" style="visibility: hidden">¡Pagar!</button>
+
+
+    </main>
+    <script src="3_productos.js"></script>
+</body>
+</html>
