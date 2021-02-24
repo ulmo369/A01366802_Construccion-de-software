@@ -63,20 +63,6 @@ function Ejercicio3(){
 
 
 function fun(){
-    /*
-    const http = require('http');
-    
-    const server = http.createServer((request, response) => {
-    
-        console.log("Hola desde el servidor");
-        response.setHeader('Content-Type', 'text/html');
-        response.(__dirname + "/Preguntas_labs.html")
-        response.end();
-    
-    } );
-    
-    server.listen(3000);*/
-
     
     const express = require("express")
     const app = express()

@@ -1,0 +1,25 @@
+{
+  "name": "a01366802_construccion-de-software",
+  "version": "1.0.0",
+  "description": "Diego Emilio Barrera Hernández",
+  "main": "lab11.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ulmo369/A01366802_Construccion-de-software.git"
+  },
+  "keywords": [
+    "express"
+  ],
+  "author": "Diego Emilio Barrera Hdz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ulmo369/A01366802_Construccion-de-software/issues"
+  },
+  "homepage": "https://github.com/ulmo369/A01366802_Construccion-de-software#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
