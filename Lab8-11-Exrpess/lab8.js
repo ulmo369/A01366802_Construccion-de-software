@@ -77,6 +77,6 @@ function fun(){
 
 }
 
-/*Ejercicio1();*/
+/*Ejercicio1();*fff/
 
 fun();
