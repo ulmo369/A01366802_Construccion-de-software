@@ -1,0 +1,27 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "laboratorio 12",
+  "main": "lab12.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon lab12.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ulmo369/A01366802_Construccion-de-software.git"
+  },
+  "author": "Diego Emilio Barrera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ulmo369/A01366802_Construccion-de-software/issues"
+  },
+  "homepage": "https://github.com/ulmo369/A01366802_Construccion-de-software#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
