@@ -11,13 +11,24 @@
 </head>
 <body>
     <header>
-        <h1 class="display-1 bg-dark" style="color: azure; text-align: center;">Choose your fighter</h1>
+        <h1 class="display-1 bg-dark" style="color: azure; text-align: center;">Choose your team</h1>
     </header>
 
     <main>
 
         <img src="https://pm1.narvii.com/6525/5f7068b64a7f8a32f6d885f8fc5e3cdcda3404d5_hq.jpg"
         width="100%" alt="team">
+
+        <div>
+            <h2>Characters:</h2>
+
+            <ul>
+                <% for (let personaje of lista_personajes){ %>
+                    <li><%= personaje %></li>
+                <% } %>
+            </ul>
+
+        </div>
 
 
     </main>
