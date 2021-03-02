@@ -1,10 +1,18 @@
+//Uso de express
 const express = require('express');
 
+//uso de las rutas de una pagina (localhost:3000/historia/personajes)
 const router = express.Router();
 
+//para generar archivos de texto
 const filesystem = require('fs');
 
+//Para utilizar el .path, referenciar uno de nuestros archivos
 const path = require('path');
+
+//Para utilizar los controladores (carpeta controladores)
+const Inicio_Controller = require('../Controllers/inicio_controller.js');
+const Pers_Controller = require('../Controllers/personajes_controller.js');
 
 var personajes = ["Daruk", "Urbosa", "Mipha", "Revali"];
 
@@ -20,19 +28,18 @@ router.get('/heroe', (request, response, next) => {
     //response.sendFile(path.join(__dirname, '..', 'views', 'heroe.html'));
 });
 
-router.get('/personajes', (request, response, next) => {
-    //response.sendFile(path.join(__dirname, '..', 'views', 'personajes.html'));
-    response.render('pers', {
-        lista_personajes: personajes,
-        titulo: "Fighters"
-    });
-   //response.send('<h1> Escribe tu texto </h1> <form action = "Texto" method = "POST"> <input type = "text" name = "texto"><input type = "submit" value = "Guardar texto"> </form>'); 
-});
+router.get('/personajes', Pers_Controller.get);
 
 router.get('/nuevo_personaje', (request, response, next) => {
     response.render('nuevo', {titulo: "Nuevo Personaje"});
     //response.sendFile(path.join(__dirname, '..', 'views', 'heroe.html'));
 });
+
+router.get('/', Inicio_Controller.get);
+
+
+module.exports = router;
+
 
 //router.post('/Texto', (request, response, next) => {
 //    console.log(request.body.texto);
@@ -40,10 +47,3 @@ router.get('/nuevo_personaje', (request, response, next) => {
 //    response.redirect('/Rutas')
 //    string = request.body.texto;
 //});
-
-router.get('/', (request, response, next) => {
-    //response.sendFile(path.join(__dirname, '..', 'views', 'inicio.html'));
-    response.render('inicio', {titulo: "Beginning"});
-});
-
-module.exports = router;
