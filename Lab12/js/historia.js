@@ -11,17 +11,27 @@ var personajes = ["Daruk", "Urbosa", "Mipha", "Revali"];
 var string = "";
 
 router.get('/enemigo', (request, response, next) => {
-    response.sendFile(path.join(__dirname, '..', 'views', 'enemigo.html'));
+    response.render('Enemigo', {titulo: "Enemy"});
+    //response.sendFile(path.join(__dirname, '..', 'views', 'enemigo.html'));
 });
 
 router.get('/heroe', (request, response, next) => {
-    response.sendFile(path.join(__dirname, '..', 'views', 'heroe.html'));
+    response.render('Heroe', {titulo: "Heroes"});
+    //response.sendFile(path.join(__dirname, '..', 'views', 'heroe.html'));
 });
 
 router.get('/personajes', (request, response, next) => {
-    response.sendFile(path.join(__dirname, '..', 'views', 'personajes.html'));
-    response.render('pers', {lista_personajes: personajes});
+    //response.sendFile(path.join(__dirname, '..', 'views', 'personajes.html'));
+    response.render('pers', {
+        lista_personajes: personajes,
+        titulo: "Fighters"
+    });
    //response.send('<h1> Escribe tu texto </h1> <form action = "Texto" method = "POST"> <input type = "text" name = "texto"><input type = "submit" value = "Guardar texto"> </form>'); 
+});
+
+router.get('/nuevo_personaje', (request, response, next) => {
+    response.render('nuevo', {titulo: "Nuevo Personaje"});
+    //response.sendFile(path.join(__dirname, '..', 'views', 'heroe.html'));
 });
 
 //router.post('/Texto', (request, response, next) => {
@@ -32,7 +42,8 @@ router.get('/personajes', (request, response, next) => {
 //});
 
 router.get('/', (request, response, next) => {
-    response.sendFile(path.join(__dirname, '..', 'views', 'inicio.html'));
+    //response.sendFile(path.join(__dirname, '..', 'views', 'inicio.html'));
+    response.render('inicio', {titulo: "Beginning"});
 });
 
 module.exports = router;

@@ -22,7 +22,8 @@ app.use((request, response, next) => {
 app.use('/historia', Rutas);
 
 app.get('/', (request, response, next) => {
-    response.sendFile(path.join(__dirname, '..', 'views', 'inicio.html'));
+    response.render('inicio');
+    //response.sendFile(path.join(__dirname, '..', 'views', 'inicio.html'));
 });
 
 app.use((request, response, next) => {
