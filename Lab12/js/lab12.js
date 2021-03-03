@@ -22,7 +22,7 @@ app.use((request, response, next) => {
 app.use('/historia', Rutas);
 
 app.get('/', (request, response, next) => {
-    response.render('inicio');
+    response.render('inicio' , {titulo: "Inicio"});
     //response.sendFile(path.join(__dirname, '..', 'views', 'inicio.html'));
 });
 

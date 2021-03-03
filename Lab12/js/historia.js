@@ -14,7 +14,8 @@ const path = require('path');
 const Inicio_Controller = require('../Controllers/inicio_controller.js');
 const Pers_Controller = require('../Controllers/personajes_controller.js');
 
-var personajes = ["Daruk", "Urbosa", "Mipha", "Revali"];
+
+//var personajes = ["Daruk", "Urbosa", "Mipha", "Revali"];
 
 var string = "";
 
@@ -28,14 +29,19 @@ router.get('/heroe', (request, response, next) => {
     //response.sendFile(path.join(__dirname, '..', 'views', 'heroe.html'));
 });
 
+
+router.get('/nuevo_personaje', Pers_Controller.getNuevoPersonaje);
+
+router.post('/nuevo_personaje', Pers_Controller.postNuevoPersonaje);
+
 router.get('/personajes', Pers_Controller.get);
 
-router.get('/nuevo_personaje', (request, response, next) => {
-    response.render('nuevo', {titulo: "Nuevo Personaje"});
-    //response.sendFile(path.join(__dirname, '..', 'views', 'heroe.html'));
-});
-
 router.get('/', Inicio_Controller.get);
+
+router.use((request, response, next) => {
+    response.statusCode = 404; 
+    response.sendFile(path.join(__dirname, '..', 'views', '404.html'));
+});
 
 
 module.exports = router;
