@@ -20,12 +20,18 @@ const Pers_Controller = require('../Controllers/personajes_controller.js');
 var string = "";
 
 router.get('/enemigo', (request, response, next) => {
-    response.render('Enemigo', {titulo: "Enemy"});
+    response.render('Enemigo', {
+        titulo: "Enemy",
+        isLoggedIn: request.session.isLoggedIn === true ? true:false
+    });
     //response.sendFile(path.join(__dirname, '..', 'views', 'enemigo.html'));
 });
 
 router.get('/heroe', (request, response, next) => {
-    response.render('Heroe', {titulo: "Heroes"});
+    response.render('Heroe', {
+        titulo: "Heroes",
+        isLoggedIn: request.session.isLoggedIn === true ? true:false
+    });
     //response.sendFile(path.join(__dirname, '..', 'views', 'heroe.html'));
 });
 

@@ -12,11 +12,12 @@ const path = require('path');
 
 //Para utilizar los controladores (carpeta controladores)
 const Users_Controller = require('../Controllers/users_controller.js');
-;
 
 router.get('/login', Users_Controller.getLogin);
 
 router.post('/login', Users_Controller.postLogin);
+
+router.get('/logout', Users_Controller.getLogin);
 
 
 module.exports = router;

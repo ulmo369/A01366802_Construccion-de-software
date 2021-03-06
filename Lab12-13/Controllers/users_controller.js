@@ -3,7 +3,7 @@ const { request, response } = require("express");
 exports.getLogin = (request, response, next) => {
     response.render('login', {
         titulo: 'Incio de sesion',
-        isLoggedIn: request.session.isLoggedIn
+        isLoggedIn: request.session.isLoggedIn === true ? true:false
     });
     
 }

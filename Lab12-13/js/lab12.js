@@ -37,7 +37,10 @@ app.use('/historia', Rutas);
 app.use('/users', RutasUsers);
 
 app.get('/', (request, response, next) => {
-    response.render('inicio' , {titulo: "Inicio"});
+    response.render('inicio' , {
+        titulo: "Inicio",
+        isLoggedIn: request.session.isLoggedIn === true ? true:false
+    });
     //response.sendFile(path.join(__dirname, '..', 'views', 'inicio.html'));
 });
 

@@ -11,7 +11,7 @@ const Nuevo_personaje = require('../Models/nuevo');
 exports.getNuevoPersonaje = (request, response, next) => {
     response.render('nuevo', {
         titulo: "New character",
-        isLoggedIn: request.session.isLoggedIn
+        isLoggedIn: request.session.isLoggedIn === true ? true:false
     });
     //response.sendFile(path.join(__dirname, '..', 'views', 'heroe.html'));
 }
