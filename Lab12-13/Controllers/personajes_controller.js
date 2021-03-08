@@ -5,15 +5,11 @@ const Personaje = require('../Models/personajes');
 const Nuevo_personaje = require('../Models/nuevo');
 
 
-//const personajes = ["Daruk", "Urbosa", "Mipha", "Revali"];
-//const per_nuevo = [];
-
 exports.getNuevoPersonaje = (request, response, next) => {
     response.render('nuevo', {
         titulo: "New character",
         isLoggedIn: request.session.isLoggedIn === true ? true:false
     });
-    //response.sendFile(path.join(__dirname, '..', 'views', 'heroe.html'));
 }
 
 
@@ -29,7 +25,6 @@ exports.postNuevoPersonaje = (request, response, next) => {
 
 exports.get = (request, response, next) => {
     const personajes = Personaje.fetchAll();
-    const per_nuevo = Nuevo_personaje.fetchAll();
 
     console.log('Cookie: ' + request.get('Cookie'));
     //console.log(request.get('Cookie').split(';')[1].trim().split('=')[1]); ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -38,12 +33,30 @@ exports.get = (request, response, next) => {
     console.log(request.cookies);
     console.log(request.cookies.Ultimo_personaje);
 
-    response.render('pers', {
-        //imagen_per: imagen_personaje,
-        lista_personajes: personajes,
-        lista_nuevo_personajes: per_nuevo,
-        titulo: "Fighters",
-        isLoggedIn: request.session.isLoggedIn === true ? true:false
-        
+    const per_nuevo = Nuevo_personaje.fetchAll()
+        .then(([rows, fieldData]) => {
+            const per_nuevo = [];
+            for (let personaje of rows){
+                per_nuevo.push({
+                    nombre: personaje.nombre, 
+                    imagen: personaje.imagen
+                });
+            }
+            console.log(per_nuevo);
+            response.render('pers', {
+                //imagen_per: imagen_personaje,
+                lista_personajes: personajes,
+                lista_nuevo_personajes: per_nuevo,
+                titulo: "Fighters",
+                isLoggedIn: request.session.isLoggedIn === true ? true:false
+                
+            });
+
+        })
+
+    .catch(err => {
+        console.log(err);
     });
+
+
 };

@@ -1,4 +1,4 @@
-const per_nuevo = [];
+const db = require('../util/database');
 
 module.exports = class Nuevo_personaje {
 
@@ -10,12 +10,12 @@ module.exports = class Nuevo_personaje {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        per_nuevo.push(this);
+        //per_nuevo.push(this);
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
-        return per_nuevo;
+        return db.execute('SELECT * FROM personajes')
     }
 
     showimage(){
