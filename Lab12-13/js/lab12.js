@@ -37,6 +37,7 @@ app.use('/historia', Rutas);
 app.use('/users', RutasUsers);
 
 app.get('/', (request, response, next) => {
+    console.log(request.session);
     response.render('inicio' , {
         titulo: "Inicio",
         isLoggedIn: request.session.isLoggedIn === true ? true:false

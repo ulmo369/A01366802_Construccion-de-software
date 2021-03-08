@@ -49,18 +49,38 @@
 
             </div>
 
+            <% if (isLoggedIn) {%>
 
-            <div class="row">
+                <div class="row">
 
-                <div class="col text-center">
-
-                    <button type="submit" class="btn btn-dark btn-lg"  onclick = ' window.location.href = "/historia/nuevo_personaje" ' >
-                        ¡Choose you character!
-                    </button>
-
+                    <div class="col text-center">
+    
+                        <button type="submit" class="btn btn-dark btn-lg"  onclick = ' window.location.href = "/historia/nuevo_personaje" ' >
+                            ¡Choose you character!
+                        </button>
+    
+                    </div>
+    
                 </div>
 
-            </div>
+            <% }%>
+
+            <% if (!isLoggedIn) {%>
+
+                <div class="row">
+
+                    <div class="col text-center">
+
+                        <p>¡¡Go to log in to choose your characters!!</p>
+    
+                    </div>
+    
+                </div>
+
+
+            <% }%>
+            
+
 
         </div>
 

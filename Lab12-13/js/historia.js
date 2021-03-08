@@ -15,10 +15,6 @@ const Inicio_Controller = require('../Controllers/inicio_controller.js');
 const Pers_Controller = require('../Controllers/personajes_controller.js');
 
 
-//var personajes = ["Daruk", "Urbosa", "Mipha", "Revali"];
-
-var string = "";
-
 router.get('/enemigo', (request, response, next) => {
     response.render('Enemigo', {
         titulo: "Enemy",
