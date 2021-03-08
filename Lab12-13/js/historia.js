@@ -38,6 +38,8 @@ router.post('/nuevo_personaje', Pers_Controller.postNuevoPersonaje);
 
 router.get('/personajes', Pers_Controller.get);
 
+router.get('/:personaje_id', Pers_Controller.getPersonaje);
+
 router.get('/', Inicio_Controller.get);
 
 router.use((request, response, next) => {

@@ -10,12 +10,18 @@ module.exports = class Nuevo_personaje {
 
     //Este método servirá para guardar de manera persistente el nuevo objeto. 
     save() {
-        //per_nuevo.push(this);
+        return db.execute('INSERT INTO personajes (nombre, imagen) VALUES (?, ?)',
+            [this.nombre, this.imagen]
+        );
     }
 
     //Este método servirá para devolver los objetos del almacenamiento persistente.
     static fetchAll() {
         return db.execute('SELECT * FROM personajes')
+    }
+
+    static fetchOne(id) {
+        return db.execute('SELECT * FROM personajes WHERE id = ?', [id])
     }
 
     showimage(){
