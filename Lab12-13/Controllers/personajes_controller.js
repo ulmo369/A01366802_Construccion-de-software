@@ -20,11 +20,9 @@ exports.postNuevoPersonaje = (request, response, next) => {
     const per_nuevo = new Nuevo_personaje(request.body.nombre_personaje, request.body.foto_personaje);
     per_nuevo.save()
         .then(() => {
-            response.setHeader('Set-Cookie', ['Ultimo_personaje='+per_nuevo.nombre + '; HttpOnly']);
+            response.setHeader('Set-Cookie', ['Ultimo_personaje='+ per_nuevo.nombre + '; HttpOnly']);
             response.redirect('/historia/personajes');
         }).catch(err => console.log(err));
-
-
 
 }
 
