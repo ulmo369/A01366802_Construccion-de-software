@@ -1,0 +1,36 @@
+<%- include('partials/head.ejs') %>
+<%- include('partials/nav.ejs') %>
+
+<main>
+    <header>
+        <h1 class="display-1 bg-dark" style="color: azure; text-align: center;">¿Do U want to add another user?</h1>
+    </header>
+
+    <img src="https://attackofthefanboy.com/wp-content/uploads/2018/12/how-to-add-cpu-super-smash-bros-ultimate.jpg" width="100%" alt="team">
+
+    <h1 style="text-align: center;"><%= titulo %></h1>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col text-center">
+
+                <form action="/users/register" method="POST">
+                    <label for="nombre">Name: </label><br><input type="text" name="nombre" placeholder="name">
+                    <br><br>
+                    <label for="usuario">Username: </label><br><input type="text" name="usuario" placeholder="username">
+                    <br><br>
+                    <label for="password">Password: </label><br><input type="password" name="password" placeholder="password">
+                    <br><br>
+                    <input type="submit" value="Ingresar">
+                </form>
+                <br>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
