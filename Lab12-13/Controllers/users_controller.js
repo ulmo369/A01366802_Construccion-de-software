@@ -8,8 +8,8 @@ exports.getLogin = (request, response, next) => {
     response.render('login', {
         titulo: 'Incio de sesion',
         error: request.session.error,
-        isLoggedIn: request.session.isLoggedIn === true ? true:false
-
+        isLoggedIn: request.session.isLoggedIn === true ? true:false,
+        csrfToken: request.csrfToken()
     });
     
 }
@@ -33,8 +33,10 @@ exports.postLogin = (request, response, next) => {
                 bcrypt.compare(request.body.password, rows[0].password)
                     .then(doMatch => {
                         if (doMatch) {
+                            request.session.password = request.body.password;
                             request.session.isLoggedIn = true;
                             request.session.usuario = request.body.usuario;
+                            console.log(request.session); // para imprimir las variables de la sesion 
                             return request.session.save(err => {
                                 response.redirect('/historia/personajes');
                             });

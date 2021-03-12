@@ -4,6 +4,9 @@ const express = require('express');
 //uso de las rutas de una pagina (localhost:3000/historia/personajes)
 const router = express.Router();
 
+//para proteger las rutas
+const isAuth = require('../util/is-auth');
+
 //para generar archivos de texto
 const filesystem = require('fs');
 
@@ -17,7 +20,7 @@ router.get('/login', Users_Controller.getLogin);
 
 router.post('/login', Users_Controller.postLogin);
 
-router.get('/logout', Users_Controller.getLogout);
+router.get('/logout', isAuth, Users_Controller.getLogout);
 
 router.get('/register', Users_Controller.getRegister);
 

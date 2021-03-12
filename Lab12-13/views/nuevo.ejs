@@ -17,6 +17,7 @@
             <div class="col text-center">
 
                 <form action="nuevo_personaje" method="POST">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
                     <input type="text" name="nombre_personaje" placeholder="Character's name">
                     <br>
                     <input type="text" name="foto_personaje" placeholder="Image link">

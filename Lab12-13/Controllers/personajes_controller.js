@@ -8,9 +8,15 @@ const personajes = ["Daruk", "Urbosa", "Mipha", "Revali"];
 
 
 exports.getNuevoPersonaje = (request, response, next) => {
+
+    if (!request.session.isLoggedIn) {
+        return response.redirect('/users/login');
+    }
+    
     response.render('nuevo', {
         titulo: "New character",
-        isLoggedIn: request.session.isLoggedIn === true ? true:false
+        isLoggedIn: request.session.isLoggedIn === true ? true:false,
+        csrfToken: request.csrfToken()
     });
 }
 
@@ -34,12 +40,11 @@ exports.getPersonaje = (request, response, next) => {
     Nuevo_personaje.fetchOne(id)
         .then(([rows, fieldData]) => {
             response.render('pers', {
-                //imagen_per: imagen_personaje,
                 lista_personajes: personajes,
                 lista_nuevo_personajes: rows,
                 titulo: "Fighters",
-                isLoggedIn: request.session.isLoggedIn === true ? true:false
-                
+                isLoggedIn: request.session.isLoggedIn === true ? true:false,
+                csrfToken: request.csrfToken()
             });
 
         })
@@ -54,12 +59,12 @@ exports.getPersonaje = (request, response, next) => {
 exports.get = (request, response, next) => {
     const personajes = Personaje.fetchAll();
 
-    console.log('Cookie: ' + request.get('Cookie'));
+    //console.log('Cookie: ' + request.get('Cookie'));
     //console.log(request.get('Cookie').split(';')[1].trim().split('=')[1]); ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
     //Cookie con cookie parser
-    console.log(request.cookies);
-    console.log(request.cookies.Ultimo_personaje);
+    //console.log(request.cookies);
+    //console.log(request.cookies.Ultimo_personaje);
 
     Nuevo_personaje.fetchAll()
         .then(([rows, fieldData]) => {
@@ -68,8 +73,8 @@ exports.get = (request, response, next) => {
                 lista_personajes: personajes,
                 lista_nuevo_personajes: rows,
                 titulo: "Fighters",
-                isLoggedIn: request.session.isLoggedIn === true ? true:false
-                
+                isLoggedIn: request.session.isLoggedIn === true ? true:false,
+                csrfToken: request.csrfToken()
             });
 
         })

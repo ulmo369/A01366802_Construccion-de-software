@@ -8,6 +8,9 @@ const RutasUsers = require('./users.js');
 const cookieParser = require('cookie-parser'); //para cokies
 const session = require('express-session');
 
+const csrf = require('csurf');
+const csrfProtection = csrf();
+
 app.set('view engine', 'ejs');
 app.set('views', 'views');//Para llamar mi views de .ejs
 
@@ -26,6 +29,8 @@ app.use(session({
 //Para acceder a los recursos de la carpeta public
 app.use(express.static(path.join(__dirname,'..', 'public')));
 
+app.use(csrfProtection); 
+
 app.use((request, response, next) => {
     console.log('Middleware!');
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
@@ -37,7 +42,7 @@ app.use('/historia', Rutas);
 app.use('/users', RutasUsers);
 
 app.get('/', (request, response, next) => {
-    console.log(request.session);
+    //console.log(request.session);
     response.render('inicio' , {
         titulo: "Inicio",
         isLoggedIn: request.session.isLoggedIn === true ? true:false

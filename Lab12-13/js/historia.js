@@ -1,6 +1,9 @@
 //Uso de express
 const express = require('express');
 
+//para proteger las rutas
+const isAuth = require('../util/is-auth');
+
 //uso de las rutas de una pagina (localhost:3000/historia/personajes)
 const router = express.Router();
 
@@ -32,13 +35,13 @@ router.get('/heroe', (request, response, next) => {
 });
 
 
-router.get('/nuevo_personaje', Pers_Controller.getNuevoPersonaje);
+router.get('/nuevo_personaje', isAuth, Pers_Controller.getNuevoPersonaje);
 
-router.post('/nuevo_personaje', Pers_Controller.postNuevoPersonaje);
+router.post('/nuevo_personaje', isAuth, Pers_Controller.postNuevoPersonaje);
 
-router.get('/personajes', Pers_Controller.get);
+router.get('/personajes', isAuth, Pers_Controller.get);
 
-router.get('/:personaje_id', Pers_Controller.getPersonaje);
+router.get('/:personaje_id', isAuth, Pers_Controller.getPersonaje);
 
 router.get('/', Inicio_Controller.get);
 
