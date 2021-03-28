@@ -16,13 +16,19 @@
 
             <div class="col text-center">
 
-                <form action="nuevo_personaje" method="POST">
-                    <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
+                <form action="nuevo_personaje?_csrf=<%=csrfToken%>" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="_csrf" value = "<%= csrfToken %>">
+                    <Label for = "nombre_personaje">Name: </Label>
                     <input type="text" name="nombre_personaje" placeholder="Character's name">
-                    <br>
-                    <input type="text" name="foto_personaje" placeholder="Image link">
-                    <br>
-                    <input type="submit" value="Add character">
+                    <br><br>
+
+                    <div class="file-loading"> 
+                        <Label for = "foto_personaje">Image: </Label>
+                        <input type="file" name="foto_personaje">
+                    </div>
+
+                    <br><br>
+                    <input type="submit" value="Add character" class="btn btn-primary">
                 </form>
                 <br>
 

@@ -6,7 +6,6 @@ const Nuevo_personaje = require('../Models/nuevo');
 
 const personajes = ["Daruk", "Urbosa", "Mipha", "Revali"];
 
-
 exports.getNuevoPersonaje = (request, response, next) => {
 
     if (!request.session.isLoggedIn) {
@@ -15,15 +14,26 @@ exports.getNuevoPersonaje = (request, response, next) => {
     
     response.render('nuevo', {
         titulo: "New character",
-        isLoggedIn: request.session.isLoggedIn === true ? true:false,
-        csrfToken: request.csrfToken()
+        csrfToken: request.csrfToken(),
+        isLoggedIn: request.session.isLoggedIn === true ? true:false
     });
 }
 
 
 exports.postNuevoPersonaje = (request, response, next) => {
     //console.log(request.body.nombre_personaje);
-    const per_nuevo = new Nuevo_personaje(request.body.nombre_personaje, request.body.foto_personaje);
+    console.log("Creando nuevo personaje...");
+    
+    const image = request.file;
+    console.log(image);
+
+    if(!image) {
+        console.error('Error al subir la imagen');
+        return response.status(422).redirect('/');
+    }
+    
+    const per_nuevo = new Nuevo_personaje(request.body.nombre_personaje, image.filename);
+
     per_nuevo.save()
         .then(() => {
             response.setHeader('Set-Cookie', ['Ultimo_personaje='+ per_nuevo.nombre + '; HttpOnly']);
@@ -43,8 +53,8 @@ exports.getPersonaje = (request, response, next) => {
                 lista_personajes: personajes,
                 lista_nuevo_personajes: rows,
                 titulo: "Fighters",
-                isLoggedIn: request.session.isLoggedIn === true ? true:false,
-                csrfToken: request.csrfToken()
+                csrfToken: request.csrfToken(),
+                isLoggedIn: request.session.isLoggedIn === true ? true:false
             });
 
         })
@@ -73,8 +83,8 @@ exports.get = (request, response, next) => {
                 lista_personajes: personajes,
                 lista_nuevo_personajes: rows,
                 titulo: "Fighters",
-                isLoggedIn: request.session.isLoggedIn === true ? true:false,
-                csrfToken: request.csrfToken()
+                csrfToken: request.csrfToken(),
+                isLoggedIn: request.session.isLoggedIn === true ? true:false
             });
 
         })
