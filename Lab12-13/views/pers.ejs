@@ -22,11 +22,21 @@
 
         <div style="text-align: center;">
             <h2>Your Characters:</h2>
+            <br>
+            <label for="buscar">Search: </label>
+
+
+            <input type="hidden" id="_csrf" name="_csrf" value="<%=csrfToken%>">
+            <input type="text" name="buscar" id="buscar" onkeyup="buscar()"  placeholder="Character's name">
+
+
+
+            <p><br></p>
         </div>
 
         <div class="container">
 
-            <div class = "row">
+            <div class = "row" id="resultados">
 
                 <% for (let per_nuevo of lista_nuevo_personajes){ %>
         
@@ -41,11 +51,9 @@
                             </div>
                         </div>
 
-
                     </div>
 
                 <% } %>
-
 
             </div>
 
@@ -54,10 +62,12 @@
                 <div class="row">
 
                     <div class="col text-center">
-    
+
+                        <p><br></p>
                         <button type="submit" class="btn btn-dark btn-lg"  onclick = ' window.location.href = "/historia/nuevo_personaje" ' >
                             ¡Choose you character!
                         </button>
+                        <p><br></p>
     
                     </div>
     
@@ -91,3 +101,58 @@
 
 </body>
 </html>
+
+<script>
+    function buscar(){
+
+        const valor_busqueda = document.getElementById('buscar').value;
+        //El token de protección CSRF
+        const csrf = document.getElementById('_csrf').value;
+
+        let data = {valor_busqueda: valor_busqueda};
+        console.log(valor_busqueda);
+
+        
+        //función que manda la petición asíncrona
+        fetch('/historia/buscar', {
+            method: 'POST',
+
+            body: JSON.stringify(data),
+
+            headers: {
+                'csrf-token': csrf,
+                'Content-Type': 'application/json'
+            }
+
+        }).then(result => {
+            return result.json(); //Regresa otra promesa
+        }).then(data => {
+            //Modificamos el DOM de nuestra página de acuerdo a los datos de la segunda promesa
+            console.log(valor_busqueda);
+
+            let html = '';
+            for (let per_nuevo of data) {
+
+                html += '<div class="col-sm-12 col-md-6 col-lg-4">' +
+
+                '<div style="text-align: center;">'+ per_nuevo.nombre +'<br></div>' +
+
+                '<div class="card">' +
+                    '<img src="/'+ per_nuevo.imagen +'" class="card-img-top">' +
+                    '<div class="card-body">' +
+                        '<p class="card-text" style="text-align: center;">'+ per_nuevo.nombre +'</p>' +
+                    '</div>' +
+                '</div>' +
+
+
+                '</div>';
+
+        }
+        document.getElementById("resultados").innerHTML = html;
+
+        }).catch(err => {
+            console.error(err);
+        });
+
+    }
+</script>

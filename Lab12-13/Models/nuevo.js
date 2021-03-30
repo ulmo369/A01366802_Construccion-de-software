@@ -24,8 +24,8 @@ module.exports = class Nuevo_personaje {
         return db.execute('SELECT * FROM personajes WHERE id = ?', [id])
     }
 
-    showimage(){
-        return this.imagen;
+    static fetchByName(nombre) {
+        return db.execute("SELECT * FROM `personajes` WHERE `nombre` LIKE ? ", ['%'+nombre+'%']);
     }
 
 }

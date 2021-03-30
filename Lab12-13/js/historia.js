@@ -45,6 +45,11 @@ router.get('/:personaje_id', isAuth, Pers_Controller.getPersonaje);
 
 router.get('/', Inicio_Controller.get);
 
+router.post('/nuevo_personaje', isAuth, Pers_Controller.postNuevoPersonaje);
+
+router.post('/buscar', Pers_Controller.postBuscar);
+
+
 router.use((request, response, next) => {
     response.statusCode = 404; 
     response.sendFile(path.join(__dirname, '..', 'views', '404.html'));

@@ -1,4 +1,6 @@
 const personajes = ["Daruk", "Urbosa", "Mipha", "Revali"];
+const db = require('../util/database');
+
 
 module.exports = class Personaje {
 
@@ -11,6 +13,7 @@ module.exports = class Personaje {
     static fetchAll() {
         return personajes;
     }
+
 
 }
    

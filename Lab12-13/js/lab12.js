@@ -19,6 +19,7 @@ app.set('views', 'views');//Para llamar mi views de .ejs
 //Middleware
 //Para acceder facilmente a los datos de las formas
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json()); //para poder mandar la peticion con AJAX
 
 //fileStorage: Es nuestra constante de configuración para manejar el almacenamiento
 const fileStorage = multer.diskStorage({
