@@ -8,9 +8,9 @@ const RutasUsers = require('./users.js');
 const cookieParser = require('cookie-parser'); //para cokies
 const session = require('express-session');
 
-const multer = require('multer');
+const multer = require('multer'); // para archivos
 
-const csrf = require('csurf');
+const csrf = require('csurf'); // PARA CSRF
 const csrfProtection = csrf();
 
 app.set('view engine', 'ejs');
