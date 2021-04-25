@@ -4,8 +4,8 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const path = require('path');
-const Rutas = require('./historia.js'); //para llavar el archivo de mis rutas
-const RutasUsers = require('./users.js');
+const Rutas = require('./js/historia.js'); //para llavar el archivo de mis rutas
+const RutasUsers = require('./js/users.js');
 const cookieParser = require('cookie-parser'); //para cokies
 const session = require('express-session');
 
